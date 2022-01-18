@@ -18,10 +18,10 @@ System.err.println("Usage: wordcount <in>
 System.exit(2);
 }
 Job job = Job.getInstance(conf, "word count");
-job.setJarByClass(WordCount.class);
-job.setMapperClass(TokenizerMapper.class);
-job.setCombinerClass(IntSumReducer.class);
-job.setReducerClass(IntSumReducer.class);
+job.setJarByClass(wcdriver.class);
+job.setMapperClass(wcmapper.class);
+job.setCombinerClass(wcreducer.class);
+job.setReducerClass(wcreducer.class);
 job.setOutputKeyClass(Text.class);
 job.setOutputValueClass(IntWritable.class);
 for (int i = 0; i < otherArgs.length - 1; ++i) {
